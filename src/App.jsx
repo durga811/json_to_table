@@ -6,7 +6,7 @@ import Section2 from './components/Section2';
 import DataTable from './components/DataTable';
 
 const App = () => {
-  // Example data
+  
   const [inputFile,SetInputFile] = useState();
   //console.log(inputFile);
   const [selectedFields, setSelectedFieldsLocal] = useState([]);
