@@ -94,7 +94,7 @@ const SpecifyFormat = ({inputFile, setCsvHeaders,setAvailableFields, SetcsvInRow
   
 
   return (
-    <div className="w-full lg:w-1/2 p-4">
+    <div className="w-full lg:w-1/2 p-4 border-4 border-green-900 m-2 rounded-lg bg-green-50">
       <h2 className="text-lg font-semibold mb-4">Step 2: Specify Format</h2>
       <div>
         <label htmlFor="fileType" className="block mb-2">File Type:</label>

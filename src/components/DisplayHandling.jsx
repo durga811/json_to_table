@@ -21,7 +21,7 @@ const DisplayHandling = ({ availableFields, setAvailableFields, setSelectedField
   };
 
   return (
-    <div className="w-full lg:w-1/2 p-4">
+    <div className="w-full lg:w-1/2 p-4 border-4 border-green-900 m-2 rounded-lg bg-green-50">
       <h2 className="text-lg font-semibold mb-4">Display Handling</h2>
       <div className="flex">
         <div className="w-1/2 pr-4">

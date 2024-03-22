@@ -11,26 +11,28 @@ const DataTable = ({ selectedFields, csvInRowFormat }) => {
   const displayData = selectedFields.length === 0 ? sortedData.slice(0, 10) : sortedData;
 
   return (
-    <div className="mt-8">
-      <h2 className="text-lg font-semibold mb-4">Displaying Data in Table Format</h2>
-      <table className="border-collapse border w-full">
-        <thead>
-          <tr className="bg-gray-200">
-            {selectedFields.map((field, index) => (
-              <th key={index} className="border border-gray-400 px-4 py-2">{field}</th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {displayData.map((row, rowIndex) => (
-            <tr key={rowIndex}>
-              {fieldIndices.map((fieldIndex, cellIndex) => (
-                <td key={cellIndex} className="border border-gray-400 px-4 py-2">{row[fieldIndex]}</td>
+    <div className="mt-6 overflow-x-auto">
+      <h2 className="text-lg font-semibold mb-4 ml-4">Displaying Data in Table Format</h2>
+      <div className="max-w-full overflow-x-auto m-4">
+        <table className="border-collapse border w-full bg-green-50">
+          <thead>
+            <tr className="bg-gray-200">
+              {selectedFields.map((field, index) => (
+                <th key={index} className="border border-gray-400 px-4 py-2">{field}</th>
               ))}
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {displayData.map((row, rowIndex) => (
+              <tr key={rowIndex}>
+                {fieldIndices.map((fieldIndex, cellIndex) => (
+                  <td key={cellIndex} className="border border-gray-400 px-4 py-2">{row[fieldIndex]}</td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };
