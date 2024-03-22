@@ -54,48 +54,43 @@ const SpecifyFormat = ({inputFile, setCsvHeaders,setAvailableFields, SetcsvInRow
     reader.onload = () => {
       const content = reader.result;
       setCsvContent(content);
-      // setErrorMessage('error');
+      let rows = [];
   
-      // Parse CSV content
-      const rows = content.split('\n').map(row => row.split(','));
-      SetcsvInRowFormat(rows)
+      if (fileType === 'json') {
+        try {
+          const jsonData = JSON.parse(content);
+          const products = jsonData.products;
+  
+          // Push headers
+          rows.push(['products_ID', 'subcategory', 'title', 'price', 'popularity']);
+  
+          // Push data for each product
+          Object.keys(products).forEach(productId => {
+            const product = products[productId];
+            rows.push([productId, product.subcategory, product.title, product.price, product.popularity]);
+          });
+        } catch (error) {
+          setErrorMessage("Error parsing JSON file.");
+          return;
+        }
+      } else if (fileType === 'csv') {
+        // Parse CSV content
+        rows = content.split('\n').map(row => row.split(','));
+      }
+  
+      SetcsvInRowFormat(rows);
+  
       // Extract headers
       const headers = rows[0];
       setCsvHeaders(headers);
       console.log(rows);
-      setAvailableFields(headers)
-  
-      // Generate table markup
-      const tableMarkup = (
-        <table className="border-collapse border border-gray-400">
-          <thead>
-            <tr>
-              {headers.map((header, index) => (
-                <th key={index} className="border border-gray-400 px-4 py-2">{header}</th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {rows.slice(1).map((row, rowIndex) => (
-              <tr key={rowIndex}>
-                {row.map((cell, cellIndex) => (
-                  <td key={cellIndex} className="border border-gray-400 px-4 py-2">{cell}</td>
-                ))}
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      );
-  
-      setTableMarkup(tableMarkup);
+      setAvailableFields(headers);
     };
   
-    if (fileType === 'json') {
-      reader.readAsText(inputFile);
-    } else if (fileType === 'csv') {
-      reader.readAsText(inputFile);
-    }
+    reader.readAsText(inputFile);
   };
+  
+  
   
 
   return (
@@ -139,7 +134,7 @@ const SpecifyFormat = ({inputFile, setCsvHeaders,setAvailableFields, SetcsvInRow
 
       {csvContent && (
         <div className="mt-4">
-          <h3 className="text-lg font-semibold">CSV Content:</h3>
+          <h3 className="text-lg font-semibold">{fileType.toUpperCase()} Content:</h3>
           <textarea value={csvContent} rows="5" className="w-full border border-gray-300 p-2 mt-2" readOnly></textarea>
         </div>
       )}

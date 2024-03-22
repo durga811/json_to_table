@@ -19,10 +19,10 @@ const App = () => {
 
   return (
     <div className="container mx-auto">
-      <Section1 SetInputFile={SetInputFile} inputFile={inputFile} setCsvHeaders={ setCsvHeaders} setAvailableFields={setAvailableFields} SetcsvInRowFormat={SetcsvInRowFormat} />
-      <Section2  setAvailableFields={setAvailableFields}  availableFields={availableFields} setSelectedFieldsLocal={setSelectedFieldsLocal} selectedFields={selectedFields}/>
-      <DataTable csvInRowFormat={csvInRowFormat} selectedFields={selectedFields}/>
-    </div>
+    <Section1 SetInputFile={SetInputFile} inputFile={inputFile} setCsvHeaders={ setCsvHeaders} setAvailableFields={setAvailableFields} SetcsvInRowFormat={SetcsvInRowFormat} />
+    <Section2  setAvailableFields={setAvailableFields}  availableFields={availableFields} setSelectedFieldsLocal={setSelectedFieldsLocal} selectedFields={selectedFields}/>
+    <DataTable csvInRowFormat={csvInRowFormat} selectedFields={selectedFields}/>
+  </div>
   );
 };
 
