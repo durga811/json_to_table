@@ -99,7 +99,7 @@ const SpecifyFormat = ({inputFile, setCsvHeaders,setAvailableFields, SetcsvInRow
       <div>
         <label htmlFor="fileType" className="block mb-2">File Type:</label>
         <div>
-          <input type="radio" id="csv" name="fileType" value="csv" checked={fileType === 'csv'} onChange={handleFileTypeChange} className="mr-2" />
+          <input type="radio" id="csv" name="fileType" value="csv" checked={fileType === 'csv'} onChange={handleFileTypeChange} className="mr-2 " />
           <label htmlFor="csv" className="mr-4">CSV</label>
           <input type="radio" id="json" name="fileType" value="json" checked={fileType === 'json'} onChange={handleFileTypeChange} />
           <label htmlFor="json">JSON</label>
@@ -130,7 +130,7 @@ const SpecifyFormat = ({inputFile, setCsvHeaders,setAvailableFields, SetcsvInRow
         </>
       )}
 
-      <button onClick={handleSubmit} className="mt-4 bg-blue-500 text-white px-4 py-2 rounded">Submit</button>
+      <button onClick={handleSubmit} className="mt-4 bg-green-800 text-white px-4 py-2 rounded">Submit</button>
 
       {csvContent && (
         <div className="mt-4">

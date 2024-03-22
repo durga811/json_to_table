@@ -33,8 +33,8 @@ const DisplayHandling = ({ availableFields, setAvailableFields, setSelectedField
           </ul>
         </div>
         <div className="m-4 flex  flex-col justify-center align-center">
-        <button onClick={handleMoveToAvailable} className="bg-blue-500 text-white h-12 m-2 px-4 py-2 rounded ">«</button>
-        <button onClick={handleMoveToDisplayed} className="bg-blue-500 text-white h-12 m-2 px-4 py-2 rounded">»</button>
+        <button onClick={handleMoveToAvailable} className="bg-green-800 text-white h-12 m-2 px-4 py-2 rounded ">«</button>
+        <button onClick={handleMoveToDisplayed} className="bg-green-800 text-white h-12 m-2 px-4 py-2 rounded">»</button>
         
       </div>
         <div className="w-1/2 pl-4">
